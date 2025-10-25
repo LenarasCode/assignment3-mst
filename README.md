@@ -50,31 +50,40 @@ assignment3-mst/
 │       └── MSTAlgorithmTest.java        # Comprehensive test suite
 ├── data/
 │   ├── input.json                       # Combined test datasets
-│   ├── small_graphs.json                # 10 small graphs (4-6 vertices)
-│   ├── medium_graphs.json               # 10 medium graphs (10-15 vertices)
-│   └── large_graphs.json                # 15 large graphs (20-34 vertices)
+│   ├── small_graphs.json                # Small graphs (< 30 vertices)
+│   ├── medium_graphs.json               # Medium graphs (< 300 vertices)
+│   ├── large_graphs.json                # Large graphs (< 1000 vertices)
+│   └── extra_graphs.json                # Extra graphs (< 1300, 1600, 2000 vertices)
 ├── results/
-│   └── output.json                       # Algorithm results and metrics
+│   ├── output.json                       # Algorithm results and metrics
+│   └── performance_data.csv              # Performance data for Python analysis
+├── scripts/
+│   └── generate_plots.py                 # Python script for generating performance plots
 ├── pom.xml                               # Maven configuration
 └── README.md                             # This file
 ```
 
 ## Test Datasets
 
-### Small Graphs (4-6 vertices)
+### Small Graphs (< 30 vertices)
 - **Purpose**: Correctness verification and debugging
-- **Count**: 10 graphs
+- **Count**: 29 graphs
 - **Characteristics**: Simple structures for algorithm validation
 
-### Medium Graphs (10-15 vertices)
+### Medium Graphs (< 300 vertices)
 - **Purpose**: Performance observation on moderately sized networks
 - **Count**: 10 graphs
 - **Characteristics**: Balanced complexity for algorithm comparison
 
-### Large Graphs (20-34 vertices)
+### Large Graphs (< 1000 vertices)
 - **Purpose**: Scalability testing and efficiency analysis
-- **Count**: 15 graphs
+- **Count**: 10 graphs
 - **Characteristics**: Complex networks to test algorithm performance differences
+
+### Extra Graphs (< 1300, 1600, 2000 vertices)
+- **Purpose**: Extreme scalability testing
+- **Count**: 10 graphs
+- **Characteristics**: Very large networks for comprehensive performance analysis
 
 ## Testing Framework
 
@@ -192,6 +201,38 @@ mvn exec:java -Dexec.mainClass="com.university.mst.MSTApplication" -Dexec.args="
 2. **Operation Count**: Number of key algorithmic operations
 3. **Memory Usage**: Space complexity analysis
 4. **Scalability**: Performance across different graph sizes
+
+## Python Performance Analysis
+
+### Generating Performance Plots
+To generate performance analysis plots, use the provided Python script:
+
+```bash
+cd scripts
+python generate_plots.py
+```
+
+This will create:
+- `performance_analysis.png` - Comprehensive performance comparison
+- `complexity_analysis.png` - Theoretical vs experimental complexity analysis
+
+### Required Python Dependencies
+```bash
+pip install pandas matplotlib seaborn numpy
+```
+
+### Performance Data
+The `performance_data.csv` file contains:
+- Graph metadata (ID, vertices, edges, type)
+- Algorithm results (cost, time, operations)
+- Performance metrics for analysis
+
+### Generated Plots Include:
+1. **Execution Time vs Graph Size** - Shows how algorithms scale
+2. **Operations Count vs Graph Size** - Compares algorithmic complexity
+3. **Average Performance by Graph Type** - Bar chart comparison
+4. **Performance Ratio Analysis** - Shows which algorithm is faster
+5. **Theoretical vs Experimental Complexity** - Validates algorithm analysis
 
 ## Conclusions
 
