@@ -257,9 +257,5 @@ mvn exec:java -Dexec.mainClass="com.university.mst.MSTApplication" -Dexec.args="
 
 This project is created for educational purposes as part of a university assignment.
 
----
 
-**Author**: [Your Name]  
-**Course**: [Course Name]  
-**Institution**: [University Name]  
-**Date**: [Current Date]
+
